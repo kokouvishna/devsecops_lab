@@ -1,6 +1,8 @@
 
 ![alt](images/project_overview.PNG)
 
+CI/CD file ``ci-cd.yml`` can be found under ``.github/workflows``.
+
 ## Technologies Used
 
 - React 18
@@ -44,8 +46,8 @@ The game implements the following rules:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/devsecops-demo.git
-   cd devsecops-demo
+   git clone https://github.com/kokouvishna/devsecops_lab.git
+   cd devsecops_lab/devsecops_pipeline_implementation_tictactoe_game
    ```
 
 2. Install dependencies:
@@ -75,3 +77,20 @@ yarn build
 ```
 
 The build artifacts will be stored in the `dist/` directory.
+
+
+### Build and run the docker image locally
+```
+docker build -t tictactoe:v1 .
+```
+`-d` run in the background. 
+```
+docker run -d -p 9000:80 tictactoe:v1
+```
+
+### Tokens
+#### PAT
+Under ``settings`` > ``Developer settings`` > ``Personal access tokens`` > ``Tokens (classic)`` create a new PAT
+#### Secrets
+Under ``Settings`` > ``Security`` > ``Secrets and variables`` > ``Actions`` create a new repository secrets token.
+Name is ``TOKEN``, ans secret ist the PAT we created earlier.
